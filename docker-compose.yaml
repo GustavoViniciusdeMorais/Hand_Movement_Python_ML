@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    jupyternotes:
+        build:
+            context: .
+            dockerfile: jupter.dockerfile
+        ports:
+            - "8888:8888"
+        environment:
+            - DISPLAY=${DISPLAY}
+        volumes:
+            - ./:/work
+            - /tmp/.X11-unix:/tmp/.X11-unix
+        devices:
+            - /dev/video0:/dev/video0
